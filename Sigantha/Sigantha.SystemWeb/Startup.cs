@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using Sigantha.Data.Contexts;
 using Sigantha.Timeline.Queries;
 
 namespace App.Sigantha.SystemWeb
@@ -65,6 +66,9 @@ namespace App.Sigantha.SystemWeb
 
             services.For<IMediator>().Use<Mediator>().Transient();
             services.For<ServiceFactory>().Use(ctx => ctx.GetInstance);
+
+            // Db Contexts
+            services.AddDbContext<SiganthaContext>(ServiceLifetime.Transient);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
