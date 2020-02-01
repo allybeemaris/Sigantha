@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigantha.SystemWeb", "Sigantha.SystemWeb\Sigantha.SystemWeb.csproj", "{A511A546-FA7F-406E-972E-DB4B5AF35848}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sigantha.SystemWeb", "Sigantha.SystemWeb\Sigantha.SystemWeb.csproj", "{A511A546-FA7F-406E-972E-DB4B5AF35848}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigantha.Api", "Sigantha.Api\Sigantha.Api.csproj", "{15363EB7-BECD-411F-8A1D-807625AE7A9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sigantha.Api", "Sigantha.Api\Sigantha.Api.csproj", "{15363EB7-BECD-411F-8A1D-807625AE7A9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigantha.Timeline", "Sigantha.Timeline\Sigantha.Timeline.csproj", "{9DDBCEB2-DC6A-44AD-B259-DB4A14EC924A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sigantha.Content", "Sigantha.Timeline\Sigantha.Content.csproj", "{9DDBCEB2-DC6A-44AD-B259-DB4A14EC924A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{9E7C9445-ECD1-4128-9C24-078518A982B6}"
 EndProject
@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{989152
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{CBC029BD-B1C0-475E-AEA5-B63478EF3B48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigantha.Data", "Sigantha.Data\Sigantha.Data.csproj", "{8E7C3316-BD37-4497-A521-5F5CEDBF9279}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sigantha.Data", "Sigantha.Data\Sigantha.Data.csproj", "{8E7C3316-BD37-4497-A521-5F5CEDBF9279}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,7 +4,7 @@ using MediatR;
 
 using Microsoft.AspNetCore.Mvc;
 
-using Sigantha.Timeline.Queries;
+using Sigantha.Content.Queries;
 
 namespace Sigantha.Api.Controllers
 {

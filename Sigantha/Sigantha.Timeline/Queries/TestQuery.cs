@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Sigantha.Data.Contexts;
 using Sigantha.Data.Entities;
 
-namespace Sigantha.Timeline.Queries
+namespace Sigantha.Content.Queries
 {
     public static class TestQuery
     {
@@ -19,7 +19,7 @@ namespace Sigantha.Timeline.Queries
 
         public class Temp
         {
-            public Test Test { get; set; }
+            public Timeline Test { get; set; }
         }
 
         public class Handler : IRequestHandler<Query, Temp>
@@ -33,7 +33,7 @@ namespace Sigantha.Timeline.Queries
 
             public async Task<Temp> Handle(Query request, CancellationToken cancellationToken)
             {
-                return new Temp { Test = await _siganthaContext.Tests.FirstOrDefaultAsync() };
+                return new Temp { Test = await _siganthaContext.Timelines.FirstOrDefaultAsync() };
             }
         }
     }

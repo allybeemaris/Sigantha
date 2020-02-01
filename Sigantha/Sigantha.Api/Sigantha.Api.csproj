@@ -9,11 +9,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sigantha.Timeline\Sigantha.Timeline.csproj" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\Sigantha.Timeline\Sigantha.Content.csproj" />
   </ItemGroup>
 
 </Project>

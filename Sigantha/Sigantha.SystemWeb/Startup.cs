@@ -14,7 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using Sigantha.Data.Contexts;
-using Sigantha.Timeline.Queries;
+using Sigantha.Content.Queries;
 
 namespace App.Sigantha.SystemWeb
 {
