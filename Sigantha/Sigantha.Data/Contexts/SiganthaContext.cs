@@ -13,6 +13,8 @@ namespace Sigantha.Data.Contexts
         public DbSet<Era> EraLegacies { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<EventLegacy> EventLegacies { get; set; }
+        public DbSet<Scene> Scenes { get; set; }
+        public DbSet<SceneLegacy> SceneLegacies { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite("Data Source=sigantha.db");
@@ -24,7 +26,42 @@ namespace Sigantha.Data.Contexts
                 .Entity<Era>(ConfigureEras)
                 .Entity<EraLegacy>(ConfigureEraLegacies)
                 .Entity<Event>(ConfigureEvents)
-                .Entity<EventLegacy>(ConfigureEventLegacies);
+                .Entity<EventLegacy>(ConfigureEventLegacies)
+                .Entity<Scene>(ConfigureScenes)
+                .Entity<SceneLegacy>(ConfigureSceneLegacies);
+        }
+
+        private void ConfigureSceneLegacies(EntityTypeBuilder<SceneLegacy> entity)
+        {
+            entity.ToTable("SceneLegacies");
+
+            entity.HasKey(s => s.Id);
+
+            entity.HasOne(s => s.Scene)
+                .WithMany(s => s.SceneLegacies);
+            entity.HasOne(s => s.Legacy)
+                .WithMany(s => s.SceneLegacies);
+        }
+
+        private void ConfigureScenes(EntityTypeBuilder<Scene> entity)
+        {
+            entity.ToTable("Scenes");
+
+            entity.HasKey(s => s.Id);
+
+            entity.Property(s => s.Name)
+                .IsRequired();
+            entity.Property(s => s.Created)
+                .IsRequired();
+            entity.Property(s => s.Modified)
+                .IsRequired();
+
+            entity.HasIndex(s => s.Name);
+
+            entity.HasOne(s => s.Timeline)
+                .WithMany(s => s.Scenes);
+            entity.HasOne(s => s.Event)
+                .WithMany(s => s.Scenes);
         }
 
         private void ConfigureEventLegacies(EntityTypeBuilder<EventLegacy> entity)

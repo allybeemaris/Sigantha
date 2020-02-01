@@ -16,5 +16,6 @@ namespace Sigantha.Data.Entities
         public virtual Timeline Timeline { get; set; }
         public virtual ICollection<EraLegacy> EraLegacies { get; set; }
         public virtual ICollection<EventLegacy> EventLegacies { get; set; }
+        public virtual ICollection<SceneLegacy> SceneLegacies { get; set; }
     }
 }
