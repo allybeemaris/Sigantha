@@ -1,14 +1,17 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+
+using Lamar;
+
+using MediatR;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+
+using Sigantha.Timeline.Queries;
 
 namespace Sigantha.SystemWeb
 {
@@ -22,9 +25,39 @@ namespace Sigantha.SystemWeb
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureContainer(ServiceRegistry services)
         {
             services.AddControllers();
+
+            services.Scan(s =>
+            {
+                s.TheCallingAssembly();
+                s.WithDefaultConventions();
+            });
+
+            var assemblies =
+                AppDomain
+                    .CurrentDomain
+                    .GetAssemblies()
+                    .Where(s => s.GetName().Name.StartsWith(nameof(Sigantha)))
+                    .ToArray();
+
+            services.AddMediatR(assemblies);
+
+            services.Scan(scanner =>
+            {
+                foreach (var assembly in assemblies)
+                {
+                    scanner.Assembly(assembly);
+                }
+
+                scanner.ConnectImplementationsToTypesClosing(typeof(IRequestHandler<,>));
+            });
+
+            services.For<IRequestHandler<TestQuery.Query, TestQuery.Temp>>().Use<TestQuery.Handler>();
+
+            services.For<IMediator>().Use<Mediator>().Transient();
+            services.For<ServiceFactory>().Use(ctx => ctx.GetInstance);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
