@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigantha.SystemWeb", "Sigantha.SystemWeb\Sigantha.SystemWeb.csproj", "{A511A546-FA7F-406E-972E-DB4B5AF35848}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigantha.Api", "Sigantha.Api\Sigantha.Api.csproj", "{15363EB7-BECD-411F-8A1D-807625AE7A9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A511A546-FA7F-406E-972E-DB4B5AF35848}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A511A546-FA7F-406E-972E-DB4B5AF35848}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A511A546-FA7F-406E-972E-DB4B5AF35848}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15363EB7-BECD-411F-8A1D-807625AE7A9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15363EB7-BECD-411F-8A1D-807625AE7A9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15363EB7-BECD-411F-8A1D-807625AE7A9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15363EB7-BECD-411F-8A1D-807625AE7A9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
