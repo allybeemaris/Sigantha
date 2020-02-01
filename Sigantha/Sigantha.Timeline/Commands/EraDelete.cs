@@ -9,16 +9,23 @@ using Sigantha.Data.Contexts;
 
 namespace Sigantha.Content.Commands
 {
-    public static class TimelineUpdate
+    public static class EraDelete
     {
-        public class Command : IRequest<Command>
+        public class Command : IRequest<Result>
+        {
+            public Guid Id { get; set; }
+        }
+
+        public class Result
         {
             public Guid Id { get; set; }
             public string Name { get; set; }
             public string Content { get; set; }
+            public string Start { get; set; }
+            public string End { get; set; }
         }
 
-        public class Handler : IRequestHandler<Command, Command>
+        public class Handler : IRequestHandler<Command, Result>
         {
             private readonly SiganthaContext _siganthaContext;
 
@@ -27,20 +34,24 @@ namespace Sigantha.Content.Commands
                 _siganthaContext = siganthaContext;
             }
 
-            public async Task<Command> Handle(Command command, CancellationToken cancellationToken)
+            public async Task<Result> Handle(Command command, CancellationToken cancellationToken)
             {
-                var timeline =
+                var era =
                     await _siganthaContext
-                        .Timelines
+                        .Eras
                         .FirstOrDefaultAsync(s => s.Id == command.Id);
 
-                timeline.Name = command.Name;
-                timeline.Content = command.Content;
-                timeline.Modified = DateTime.UtcNow;
-
+                _siganthaContext.Eras.Remove(era);
                 await _siganthaContext.SaveChangesAsync();
 
-                return command;
+                return new Result
+                {
+                    Id = era.Id,
+                    Name = era.Name,
+                    Content = era.Content,
+                    Start = era.Start,
+                    End = era.End
+                };
             }
         }
     }

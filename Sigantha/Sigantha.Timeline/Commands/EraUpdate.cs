@@ -9,13 +9,15 @@ using Sigantha.Data.Contexts;
 
 namespace Sigantha.Content.Commands
 {
-    public static class TimelineUpdate
+    public static class EraUpdate
     {
         public class Command : IRequest<Command>
         {
             public Guid Id { get; set; }
             public string Name { get; set; }
             public string Content { get; set; }
+            public string Start { get; set; }
+            public string End { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, Command>
@@ -29,14 +31,16 @@ namespace Sigantha.Content.Commands
 
             public async Task<Command> Handle(Command command, CancellationToken cancellationToken)
             {
-                var timeline =
+                var era =
                     await _siganthaContext
-                        .Timelines
+                        .Eras
                         .FirstOrDefaultAsync(s => s.Id == command.Id);
 
-                timeline.Name = command.Name;
-                timeline.Content = command.Content;
-                timeline.Modified = DateTime.UtcNow;
+                era.Name = command.Name;
+                era.Content = command.Content;
+                era.Start = command.Start;
+                era.End = command.End;
+                era.Modified = DateTime.UtcNow;
 
                 await _siganthaContext.SaveChangesAsync();
 
