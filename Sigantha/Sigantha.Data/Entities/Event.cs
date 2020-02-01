@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace Sigantha.Data.Entities
 {
-    public class Era
+    public class Event
     {
         public Guid Id { get; set; }
-        public Guid TimelineId { get; set; }
+        public Guid? EraId { get; set; }
         public string Name { get; set; }
         public string Content { get; set; }
         public string Start { get; set; }
@@ -14,8 +14,7 @@ namespace Sigantha.Data.Entities
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
 
-        public virtual Timeline Timeline { get; set; }
-        public virtual ICollection<EraLegacy> EraLegacies { get; set; }
-        public virtual ICollection<Event> Events { get; set; }
+        public virtual Era Era { get; set; }
+        public virtual ICollection<EventLegacy> EventLegacies { get; set; }
     }
 }
