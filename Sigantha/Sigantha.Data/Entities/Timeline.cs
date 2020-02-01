@@ -13,5 +13,6 @@ namespace Sigantha.Data.Entities
 
         public virtual ICollection<Legacy> Legacies { get; set; }
         public virtual ICollection<Era> Eras { get; set; }
+        public virtual ICollection<Event> Events { get; set; }
     }
 }

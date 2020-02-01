@@ -54,6 +54,8 @@ namespace Sigantha.Data.Contexts
 
             entity.HasIndex(s => s.Name);
 
+            entity.HasOne(s => s.Timeline)
+                .WithMany(s => s.Events);
             entity.HasOne(s => s.Era)
                 .WithMany(s => s.Events);
         }
