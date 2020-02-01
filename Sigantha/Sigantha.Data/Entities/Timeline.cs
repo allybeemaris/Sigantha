@@ -12,5 +12,6 @@ namespace Sigantha.Data.Entities
         public DateTime Modified { get; set; }
 
         public virtual ICollection<Legacy> Legacies { get; set; }
+        public virtual ICollection<Era> Eras { get; set; }
     }
 }
