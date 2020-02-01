@@ -3,7 +3,7 @@ using Lamar.Microsoft.DependencyInjection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Sigantha.SystemWeb
+namespace App.Sigantha.SystemWeb
 {
     public class Program
     {

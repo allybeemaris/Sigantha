@@ -9,6 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigantha.Api", "Sigantha.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigantha.Timeline", "Sigantha.Timeline\Sigantha.Timeline.csproj", "{9DDBCEB2-DC6A-44AD-B259-DB4A14EC924A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{9E7C9445-ECD1-4128-9C24-078518A982B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{2C14AA55-B702-4E17-BBFF-043B4442AB1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{989152D1-463C-47DD-92A0-F91ABE8C4F8A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{CBC029BD-B1C0-475E-AEA5-B63478EF3B48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +38,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A511A546-FA7F-406E-972E-DB4B5AF35848} = {2C14AA55-B702-4E17-BBFF-043B4442AB1F}
+		{15363EB7-BECD-411F-8A1D-807625AE7A9D} = {CBC029BD-B1C0-475E-AEA5-B63478EF3B48}
+		{9DDBCEB2-DC6A-44AD-B259-DB4A14EC924A} = {9E7C9445-ECD1-4128-9C24-078518A982B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E8C8CC5E-E8A1-44E3-B1AF-706B1306509E}
