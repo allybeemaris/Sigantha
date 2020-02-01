@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Sigantha.Data.Entities
 {
-    public class Timeline
+    public class Legacy
     {
         public Guid Id { get; set; }
+        public Guid TimelineId { get; set; }
         public string Name { get; set; }
         public string Content { get; set; }
+        public string SymbolPath { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
 
-        public virtual ICollection<Legacy> Legacies { get; set; }
+        public virtual Timeline Timeline { get; set; }
     }
 }
