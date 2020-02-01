@@ -62,7 +62,7 @@ namespace App.Sigantha.SystemWeb
             });
 
             // Need to add one for mediatr to see all of them
-            services.For<IRequestHandler<TestQuery.Query, TestQuery.Temp>>().Use<TestQuery.Handler>();
+            services.For<IRequestHandler<TimelineGet.Query, TimelineGet.Result>>().Use<TimelineGet.Handler>();
 
             services.For<IMediator>().Use<Mediator>().Transient();
             services.For<ServiceFactory>().Use(ctx => ctx.GetInstance);
